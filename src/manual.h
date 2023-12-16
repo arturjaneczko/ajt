@@ -1,5 +1,8 @@
 #include <string>
 
+#ifndef MANUAL_H
+#define MANUAL_H
+
 std::string manual() {
 	std::string manual = "";
 	manual += purple(" AJT allows you to search the contents of files by key or tags.\n");
@@ -13,6 +16,7 @@ std::string manual() {
 	manual += purple(" Incorrect keys must be fixed for correct directory mapping (recursive).\n");
 	manual += purple(" Invalid tags will be skipped.\n");
 	manual += "\n";
-	manual += "\n";
 	return manual;
 }
+
+#endif// MANUAL_H

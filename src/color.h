@@ -3,6 +3,9 @@
 #include <map>
 #include <string>
 
+#ifndef COLOR_H
+#define COLOR_H
+
 namespace ajtcolors {
 	enum Color {RED, GREEN, YELLOW, BLUE, PURPLE, CYAN, WHITE, BLACK};
 }
@@ -58,3 +61,5 @@ std::string white(std::string text) {
 std::string black(std::string text) {
 	return color(text, ajtcolors::Color::BLACK);
 }
+
+#endif// COLOR_H
