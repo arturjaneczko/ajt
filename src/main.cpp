@@ -1,13 +1,6 @@
 #include <iostream>
 #include <string>
 #include "command.h"
-#include "help.h"
-#include "info.h"
-#include "manual.h"
-
-void print(std::string value) {
-	std::cout << value << std::endl;
-}
 
 int main() {
 	std::cout << info() << std::endl;
@@ -19,15 +12,15 @@ int main() {
 		if (command::isQuit(input)) {
 			exit(0);
 		} else if (command::isHelp(input)) {
-			print(help());
+			command::printHelp();
 		} else if (command::isManual(input)) {
-			print(manual());
+			command::printManual();
 		} else if (command::isInfo(input)) {
-			print(info());
+			command::printInfo();
 		} else if (command::isClear(input)) {
 			system("clear");
 		} else {
-			print("ajt");
+			std::cout << "ajt" << std::endl;
 		}
 	}
 	return 0;
