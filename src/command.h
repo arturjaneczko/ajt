@@ -37,6 +37,14 @@ namespace command {
 		return eq(":c", input);
 	}
 
+	bool isKeys(std::string input) {
+		return eq(":k", input);
+	}
+
+	bool isTags(std::string input) {
+		return eq(":t", input);
+	}
+
 	void printHelp() {
 		print(help());
 	}
