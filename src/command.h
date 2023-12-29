@@ -45,6 +45,26 @@ namespace command {
 		return eq(":t", input);
 	}
 
+	bool isSearch(std::string input) {
+		return 0 < input.length() && '?' == input[0];
+	}
+
+	bool isKeySearch(std::string input) {
+		return isSearch(input) && 1 == input.length();
+	}
+
+	bool isTagSearch(std::string input) {
+		return isSearch(input) && (2 == input.length()) && '#' == input[1];
+	}
+
+	bool isContentSearch(std::string input) {
+		return isSearch(input) && (2 == input.length()) && '.' == input[1];
+	}
+
+	bool isAnySearch(std::string input) {
+		return isKeySearch(input) || isTagSearch(input) || isContentSearch(input);
+	}
+
 	void printHelp() {
 		print(help());
 	}

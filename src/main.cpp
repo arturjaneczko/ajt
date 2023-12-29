@@ -3,6 +3,7 @@
 #include "command.h"
 #include "data.h"
 #include "keys.h"
+#include "search.h"
 #include "tags.h"
 
 int main() {
@@ -28,7 +29,9 @@ int main() {
 		} else if (command::isTags(input)) {
 			printTags(map);
 		} else {
-			if ('#' != input[0]) {
+			if (command::isSearch(input)) {
+				search(map, input);
+			} else if ('#' != input[0]) {
 				if (map.count(input)) {
 					std::cout << yellow(map[input].second) << std::endl;
 					std::cout << green("---") << std::endl;
