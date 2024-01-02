@@ -34,13 +34,6 @@ std::pair<std::string, std::set<std::string>> tagSearch(std::map<std::string, st
 				result.insert(fileName);
 			}
 		}
-		//for (int i=0; i<tags.size(); i++) {
-		//	std::string tag = tags[i];
-		//	if (contains(tag, input)) {
-		//		std::string fileName = fileNameWithTags.first;
-		//		result.insert(fileName);
-		//	}
-		//}
 	}
 	return std::make_pair("#", result);
 }
@@ -63,17 +56,13 @@ std::pair<std::string, std::set<std::string>> contentSearch(std::map<std::string
 }
 
 void search(std::map<std::string, std::pair<std::pair<std::string, std::vector<std::string>>, std::string>> data, std::string input) {
-	//if (command::isSearch(input)) {
-		if (command::isContentSearch(input)) {
-			engine(data, &contentSearch);
-		} else if (command::isTagSearch(input)) {
-			engine(data, &tagSearch);
-		} else if (command::isKeySearch(input)) {
-			engine(data, &keySearch);
-		}// else {
-			//throw std::invalid_argument("Unknown SEARCH!");
-		//}
-	//}
+	if (command::isContentSearch(input)) {
+		engine(data, &contentSearch);
+	} else if (command::isTagSearch(input)) {
+		engine(data, &tagSearch);
+	} else if (command::isKeySearch(input)) {
+		engine(data, &keySearch);
+	}
 }
 
 #endif// SEARCH_H

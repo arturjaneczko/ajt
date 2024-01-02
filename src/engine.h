@@ -2,8 +2,8 @@
 #define ENGINE_H
 
 void engine(std::map<std::string, std::pair<std::pair<std::string, std::vector<std::string>>, std::string>> data, std::function<std::pair<std::string, std::set<std::string>>(std::map<std::string, std::pair<std::pair<std::string, std::vector<std::string>>, std::string>>, std::string)> func) {
-	std::string seq(1, '\0');
-	char c;
+	char c = '\0';
+	std::string seq(1, c);
 	system("stty raw");
 	while (true) {
 		c = getchar();
@@ -20,7 +20,7 @@ void engine(std::map<std::string, std::pair<std::pair<std::string, std::vector<s
 			seq += cc;
 		}
 		std::pair<std::string, std::set<std::string>> result = func(data, seq);
-		std::cout << purple(" [ ") << blue(result.first) << purple(" ] ") << green(seq) << "\r\n";
+		std::cout << purple("[ ") << blue(result.first) << purple(" ] ") << green(seq) << "\r\n";
 		for (const auto & r : result.second) {
 			std::cout << "\t" << yellow(r) << "\r\n";
 		}
