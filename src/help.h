@@ -14,6 +14,7 @@ std::map<std::string, std::string> helpData() {
 	data[":i"] = "info";
 	data[":k"] = "keys";
 	data[":t"] = "tags";
+	data[":?"] = "search";
 	return data;
 }
 

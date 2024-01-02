@@ -65,4 +65,11 @@ void search(std::map<std::string, std::pair<std::pair<std::string, std::vector<s
 	}
 }
 
+void printSearch() {
+	std::cout << " " << purple("[ SEARCH ]") << std::endl;
+	std::cout << "\t" << green("?") << " " << yellow("<key>") << purple(" - key search | ") << purple("[") << " " << blue("?") << " " << purple("] indicator") << std::endl;
+	std::cout << "\t" << green("?#") << " " << yellow("<tag>") << purple(" - tag search | ") << purple("[") << " " << blue("#") << " " << purple("] indicator") << std::endl;
+	std::cout << "\t" << green("?.") << " " << yellow("<sequence>") << purple(" - content search | ") << purple("[") << " " << blue(".") << " " << purple("] indicator") << std::endl;
+}
+
 #endif// SEARCH_H

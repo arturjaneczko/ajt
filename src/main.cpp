@@ -28,6 +28,8 @@ int main() {
 			printKeys(map);
 		} else if (command::isTags(input)) {
 			printTags(map);
+		} else if (command::isSearchCommand(input)) {
+			printSearch();
 		} else {
 			if (command::isSearch(input)) {
 				search(map, input);

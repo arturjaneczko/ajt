@@ -45,6 +45,10 @@ namespace command {
 		return eq(":t", input);
 	}
 
+	bool isSearchCommand(std::string input) {
+		return eq(":?", input);
+	}
+
 	bool isSearch(std::string input) {
 		return 0 < input.length() && '?' == input[0];
 	}
