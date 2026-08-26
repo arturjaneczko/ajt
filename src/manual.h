@@ -16,6 +16,8 @@ std::string manual() {
 	manual += purple(" Incorrect keys must be fixed for correct directory mapping (recursive).\n");
 	manual += purple(" Invalid tags will be skipped.\n");
 	manual += "\n";
+	manual += purple(" Use ':h' to display help.\n");
+	manual += "\n";
 	return manual;
 }
 

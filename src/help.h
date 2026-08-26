@@ -12,6 +12,7 @@ std::map<std::string, std::string> helpData() {
 	data[":h"] = "help";
 	data[":m"] = "manual";
 	data[":i"] = "info";
+	data[":l"] = "list";
 	data[":k"] = "keys";
 	data[":t"] = "tags";
 	data[":?"] = "search";

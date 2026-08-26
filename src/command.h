@@ -37,6 +37,10 @@ namespace command {
 		return eq(":c", input);
 	}
 
+	bool isList(std::string input) {
+		return eq(":l", input);
+	}
+
 	bool isKeys(std::string input) {
 		return eq(":k", input);
 	}

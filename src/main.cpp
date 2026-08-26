@@ -2,6 +2,7 @@
 #include <string>
 #include "command.h"
 #include "data.h"
+#include "list.h"
 #include "keys.h"
 #include "search.h"
 #include "tags.h"
@@ -24,6 +25,8 @@ int main() {
 			command::printInfo();
 		} else if (command::isClear(input)) {
 			system("clear");
+		} else if (command::isList(input)) {
+			printList(map);
 		} else if (command::isKeys(input)) {
 			printKeys(map);
 		} else if (command::isTags(input)) {
