@@ -12,16 +12,17 @@ std::map<std::string, std::string> helpData() {
 	data[":h"] = "help";
 	data[":m"] = "manual";
 	data[":i"] = "info";
-	data[":l"] = "list";
+	data[":g"] = "groups";
 	data[":k"] = "keys";
 	data[":t"] = "tags";
+	data[":s"] = "status";
 	data[":?"] = "search";
 	return data;
 }
 
 std::string help() {
 	std::string help = "";
-	help += blue(" [ HELP ]");
+	help += blue("[ HELP ]");
 	help += "\n\t";
 	for (const auto & entry : helpData()) {
 		help += blue(entry.first + " - " + entry.second);

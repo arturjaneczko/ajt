@@ -4,7 +4,7 @@
 #define VERSION_H
 
 std::string version() {
-	return "2Beta";
+	return "3Beta";
 }
 
 #endif// VERSION_H

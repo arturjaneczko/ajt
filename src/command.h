@@ -37,8 +37,8 @@ namespace command {
 		return eq(":c", input);
 	}
 
-	bool isList(std::string input) {
-		return eq(":l", input);
+	bool isGroups(std::string input) {
+		return eq(":g", input);
 	}
 
 	bool isKeys(std::string input) {
@@ -55,6 +55,10 @@ namespace command {
 
 	bool isSearch(std::string input) {
 		return 0 < input.length() && '?' == input[0];
+	}
+
+	bool isStatus(std::string input) {
+		return eq(":s", input);
 	}
 
 	bool isKeySearch(std::string input) {

@@ -2,17 +2,36 @@
 #include <string>
 #include "command.h"
 #include "data.h"
-#include "list.h"
+#include "groups.h"
 #include "keys.h"
+#include "status.h"
 #include "search.h"
 #include "tags.h"
+
+std::map<std::string, std::pair<std::pair<std::string, std::vector<std::string>>, std::string>> filtered(std::map<std::string, std::pair<std::pair<std::string, std::vector<std::string>>, std::string>> data, std::string filter) {
+	std::map<std::string, std::pair<std::pair<std::string, std::vector<std::string>>, std::string>> temp;
+	for (auto d : data) {
+		std::string path = d.second.first.first;
+		if (path.find(filter) != std::string::npos) {
+			temp[d.first] = d.second;
+		}
+	}
+	return temp;
+}
 
 int main() {
 	std::cout << info() << std::endl;
 	std::cout << manual() << std::endl;
+
 	std::map<std::string, std::pair<std::pair<std::string, std::vector<std::string>>, std::string>> map = data();
+	std::string filter = "./";
+
 	while (true) {
-		std::cout << green("> ");
+		std::cout << "\n";
+		std::cout << "--------------------------------" << "\n";
+		std::string output = purple("[") + blue(filter) + purple("]") + green("> ");
+		std::cout << output;
+		//std::cout << green("> ");
 		std::string input = "";
 		std::cin >> input;
 		if (command::isQuit(input)) {
@@ -25,14 +44,18 @@ int main() {
 			command::printInfo();
 		} else if (command::isClear(input)) {
 			system("clear");
-		} else if (command::isList(input)) {
-			printList(map);
+		} else if (command::isGroups(input)) {
+			std::string group = printGroups(map);
+			filter = group;
+			filtered(map, filter);
 		} else if (command::isKeys(input)) {
-			printKeys(map);
+			printKeys(filtered(map, filter));
 		} else if (command::isTags(input)) {
-			printTags(map);
+			printTags(filtered(map, filter));
 		} else if (command::isSearchCommand(input)) {
 			printSearch();
+		} else if (command::isStatus(input)) {
+			printStatus(filtered(map, filter));
 		} else {
 			if (command::isSearch(input)) {
 				search(map, input);

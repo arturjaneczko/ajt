@@ -35,6 +35,7 @@ std::map<std::string, std::pair<std::pair<std::string, std::vector<std::string>>
 
                 std::vector<std::string> keyAndTags = split(line);
                 std::string key = keyAndTags[0];
+		std::string path = fileName.substr(0, fileName.rfind('/'));
                 if ('#' == key[0]) {
                     std::string error = "!!! The key can't start with '#' (" + fileName + ")!";
                     std::cout << red(error) << std::endl;
