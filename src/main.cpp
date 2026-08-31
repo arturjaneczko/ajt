@@ -23,7 +23,7 @@ std::map<std::string, std::pair<std::pair<std::string, std::vector<std::string>>
 int main() {
 	std::cout << info() << std::endl;
 	std::cout << manual() << std::endl;
-	std::filesystem::create_directory("ajt/");
+	std::filesystem::create_directory("AJT/");
 
 	bool isNormalMode = true;
 	std::map<std::string, std::pair<std::pair<std::string, std::vector<std::string>>, std::string>> map = data(isNormalMode);
@@ -37,7 +37,6 @@ int main() {
 		std::string ajtFilter = gray("[") + yellow(" --- ") + gray("AJT") + yellow(" --- ") + gray("]");
 		std::string output = isRootFilter ? (purple("[") + blue(filter) + purple("]") + green("> ")) : (ajtFilter + green("> "));
 		std::cout << output;
-		//std::cout << green("> ");
 		std::string input = "";
 		std::cin >> input;
 		if (command::isQuit(input)) {
@@ -53,8 +52,6 @@ int main() {
 		} else if (command::isGroups(input)) {
 			std::string group = printGroups(map);
 			filter = group;
-			// TODO check
-			filtered(map, filter);
 		} else if (command::isKeys(input)) {
 			printKeys(filtered(map, filter));
 		} else if (command::isTags(input)) {
@@ -69,7 +66,7 @@ int main() {
 		} else if (command::isAjt(input)) {
 			isNormalMode = !isNormalMode;
 			map = data(isNormalMode);
-			filter = isNormalMode ? "./" : "./ajt";
+			filter = isNormalMode ? "./" : "./AJT";
 		} else {
 			if (command::isSearch(input)) {
 				search(map, input);

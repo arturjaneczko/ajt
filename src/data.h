@@ -11,23 +11,14 @@
 #define DATA_H
 
 bool isFileNameValid(std::string fileName, bool isNormalMode) {
-	std::string ajtRootDir = "./ajt/";
+	std::string ajtRootDir = "./AJT/";
 	bool isInRootDir = fileName.find(ajtRootDir) != std::string::npos;
 	if (isNormalMode) {
-		//std::cout << yellow(fileName) << "\n";
 		bool isNotInRootDir = !isInRootDir;
 		bool valid = isNotInRootDir && fileName.length() > 6 && ".ajt" == fileName.substr(fileName.length() - 4, 4);
-		//if (!valid) {
-			//std::cout << red("File name invalid: ") << fileName << red("!") << "\n";
-		//}
 		return valid;
 	} else {
-		//std::string ajtRootDir = "./ajt/";
-		//bool isInRootDir = fileName.find(ajtRootDir) != std::string::npos;
 		return isInRootDir;
-		//if (isInRootDir) {
-			//return false;
-		//}
 	}
 }
 
@@ -36,7 +27,6 @@ std::vector<std::string> split(std::string value) {
 	std::istream_iterator<std::string> begin(ss);
 	std::istream_iterator<std::string> end;
 	std::vector<std::string> splitted(begin, end);
-	//std::copy(splitted.begin(), splitted.end(), std::ostream_iterator<std::string>(std::cout, "\n"));
 	return splitted;
 }
 
