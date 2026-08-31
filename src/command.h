@@ -61,6 +61,14 @@ namespace command {
 		return eq(":s", input);
 	}
 
+	bool isNew(std::string input) {
+		return eq(":n", input);
+	}
+
+	bool isAjt(std::string input) {
+		return eq(":ajt", input);
+	}
+
 	bool isKeySearch(std::string input) {
 		return isSearch(input) && 1 == input.length();
 	}

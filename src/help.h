@@ -16,7 +16,9 @@ std::map<std::string, std::string> helpData() {
 	data[":k"] = "keys";
 	data[":t"] = "tags";
 	data[":s"] = "status";
+	data[":n"] = "new file";
 	data[":?"] = "search";
+	data[":ajt"] = "AJT mode on/off";
 	return data;
 }
 

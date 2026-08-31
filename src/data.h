@@ -10,8 +10,25 @@
 #ifndef DATA_H
 #define DATA_H
 
-bool isFileNameValid(std::string fileName) {
-	return fileName.length() > 6 && ".ajt" == fileName.substr(fileName.length() - 4, 4);
+bool isFileNameValid(std::string fileName, bool isNormalMode) {
+	std::string ajtRootDir = "./ajt/";
+	bool isInRootDir = fileName.find(ajtRootDir) != std::string::npos;
+	if (isNormalMode) {
+		//std::cout << yellow(fileName) << "\n";
+		bool isNotInRootDir = !isInRootDir;
+		bool valid = isNotInRootDir && fileName.length() > 6 && ".ajt" == fileName.substr(fileName.length() - 4, 4);
+		//if (!valid) {
+			//std::cout << red("File name invalid: ") << fileName << red("!") << "\n";
+		//}
+		return valid;
+	} else {
+		//std::string ajtRootDir = "./ajt/";
+		//bool isInRootDir = fileName.find(ajtRootDir) != std::string::npos;
+		return isInRootDir;
+		//if (isInRootDir) {
+			//return false;
+		//}
+	}
 }
 
 std::vector<std::string> split(std::string value) {
@@ -23,12 +40,12 @@ std::vector<std::string> split(std::string value) {
 	return splitted;
 }
 
-std::map<std::string, std::pair<std::pair<std::string, std::vector<std::string>>, std::string>> data() {
+std::map<std::string, std::pair<std::pair<std::string, std::vector<std::string>>, std::string>> data(bool isNormalMode) {
     std::map<std::string, std::pair<std::pair<std::string, std::vector<std::string>>, std::string>> data;
     for (const auto & entry : std::filesystem::recursive_directory_iterator(".")) {
         std::string fileName = entry.path();
         if (std::filesystem::is_regular_file(fileName)) {
-            if(isFileNameValid(fileName)) {
+            if(isFileNameValid(fileName, isNormalMode)) {
                 std::fstream file(fileName);
                 std::string line;
                 std::getline(file, line);

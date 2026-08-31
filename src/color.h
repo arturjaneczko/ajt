@@ -7,7 +7,7 @@
 #define COLOR_H
 
 namespace ajtcolors {
-	enum Color {RED, GREEN, YELLOW, BLUE, PURPLE, CYAN, WHITE, BLACK};
+	enum Color {RED, GREEN, YELLOW, BLUE, PURPLE, CYAN, WHITE, BLACK, GRAY};
 }
 
 std::map<ajtcolors::Color, std::pair<std::string, std::string>> colors() {
@@ -20,6 +20,7 @@ std::map<ajtcolors::Color, std::pair<std::string, std::string>> colors() {
 	map[ajtcolors::Color::CYAN] = std::make_pair("\x1B[36m", "\033[0m");
 	map[ajtcolors::Color::WHITE] = std::make_pair("\x1B[47m", "\033[0m");// WHITE color is exception here - B instead of F
 	map[ajtcolors::Color::BLACK] = std::make_pair("\x1B[30m", "\033[0m");
+	map[ajtcolors::Color::GRAY] = std::make_pair("\x1B[90m", "\033[0m");
 	return map;
 }
 
@@ -60,6 +61,10 @@ std::string white(std::string text) {
 
 std::string black(std::string text) {
 	return color(text, ajtcolors::Color::BLACK);
+}
+
+std::string gray(std::string text) {
+	return color(text, ajtcolors::Color::GRAY);
 }
 
 #endif// COLOR_H
