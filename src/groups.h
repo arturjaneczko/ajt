@@ -20,11 +20,8 @@ std::string printGroups(std::map<std::string, std::pair<std::pair<std::string, s
 			});
 			if (!hasValue) {
 				paths.push_back(path);
-				//groups[index++] = path;
 			}
 		}
-	} else {
-		std::cout << "\t" << purple("Nothing.") << std::endl;
 	}
 
 	std::sort(paths.begin(), paths.end());
