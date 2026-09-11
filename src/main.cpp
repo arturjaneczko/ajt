@@ -57,6 +57,8 @@ int main() {
 			printKeys(filtered(map, filter));
 		} else if (command::isTags(input)) {
 			printTags(filtered(map, filter));
+		} else if (command::isBackup(input)) {
+			std::system("bash backup.sh");
 		} else if (command::isSearchCommand(input)) {
 			printSearch();
 		} else if (command::isStatus(input)) {

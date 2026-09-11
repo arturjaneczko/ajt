@@ -15,6 +15,7 @@ std::map<std::string, std::string> helpData() {
 	data[":g"] = "groups";
 	data[":k"] = "keys";
 	data[":t"] = "tags";
+	data[":b"] = "backup";
 	data[":s"] = "status";
 	data[":n"] = "new file";
 	data[":?"] = "search";

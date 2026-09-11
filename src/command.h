@@ -49,6 +49,10 @@ namespace command {
 		return eq(":t", input);
 	}
 
+	bool isBackup(std::string input) {
+		return eq(":b", input);
+	}
+
 	bool isSearchCommand(std::string input) {
 		return eq(":?", input);
 	}
