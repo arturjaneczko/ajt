@@ -8,6 +8,7 @@
 #include "new.h"
 #include "search.h"
 #include "tags.h"
+#include "instant.h"
 
 std::map<std::string, std::pair<std::pair<std::string, std::vector<std::string>>, std::string>> filtered(std::map<std::string, std::pair<std::pair<std::string, std::vector<std::string>>, std::string>> data, std::string filter) {
 	std::map<std::string, std::pair<std::pair<std::string, std::vector<std::string>>, std::string>> temp;
@@ -32,10 +33,10 @@ int main() {
 	while (true) {
 		std::cout << "\n";
 		bool isRootFilter = filter == "./";
-		std::string delimiter = "--------------------------------";
-		std::cout << (isRootFilter ? delimiter : gray(delimiter)) << "\n";
+		std::string delimiter = "----------------------------------------------------------------";
+		std::cout << gray(delimiter) << ' ' << gray(instant()) << "\n";
 		std::string ajtFilter = gray("[") + yellow(" --- ") + gray("AJT") + yellow(" --- ") + gray("]");
-		std::string output = isRootFilter ? (purple("[") + blue(filter) + purple("]") + green("> ")) : (ajtFilter + green("> "));
+		std::string output = isNormalMode ? (purple("[") + blue(filter) + purple("]") + green("> ")) : (ajtFilter + purple("[") + blue(filter) + purple("]") + green("> "));
 		std::cout << output;
 		std::string input = "";
 		std::cin >> input;
