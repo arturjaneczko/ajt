@@ -53,6 +53,10 @@ namespace command {
 		return eq(":b", input);
 	}
 
+	bool isX(std::string input) {
+		return eq(":x", input);
+	}
+
 	bool isSearchCommand(std::string input) {
 		return eq(":?", input);
 	}

@@ -6,6 +6,7 @@
 #include "keys.h"
 #include "status.h"
 #include "new.h"
+#include "extension.h"
 #include "search.h"
 #include "tags.h"
 #include "instant.h"
@@ -59,6 +60,8 @@ int main() {
 			printTags(filtered(map, filter));
 		} else if (command::isBackup(input)) {
 			std::system("bash backup.sh");
+		} else if (command::isX(input)) {
+			extension();
 		} else if (command::isSearchCommand(input)) {
 			printSearch();
 		} else if (command::isStatus(input)) {
