@@ -17,7 +17,13 @@ fileName="${timestamp}${extension}"
 echo "file name is: $fileName"
 DEST="${timestamp}"
 cp -r "../${DIR}" ${DEST}
-zip -r "${fileName}" "${timestamp}"
-rm -rf "${timestamp}"
+zip -r "${fileName}" "${DEST}"
+rm -rf "${DEST}"
+
+DIR=AJT/
+DEST="AJT_${timestamp}"
+cp -r "../${DIR}" ${DEST}
+zip -r "AJT_${fileName}" "${DEST}"
+rm -rf "${DEST}"
 echo "Backup finished"
 exit 0
